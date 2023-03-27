@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau avec éléments divers</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td, th {
+      padding: 5px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Number 1: <input type="text"></td>
+      <td>Number 2: <input type="text"></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="pgcd"><label for="pgcd">PGCD</label></td>
+      <td><input type="checkbox" id="ppcm"><label for="ppcm">PPCM</label></td>
+    </tr>
+    <tr>
+      <td><button onclick="hideTable()">Hide</button></td>
+      <td><button onclick="showTable()">Show</button></td>
+      <td><button onclick="hideInputs()">Hide</button></td>
+      <td><button onclick="showInputs()">Show</button></td>
+
+
+    </tr>
+  </table>
+  
+  <script>
+    function hideTable() {
+      const table = document.querySelector("table");
+      table.style.display = "none";
+    }
+
+    function showTable() {
+      const table = document.querySelector("table");
+      table.style.display = "table";
+    }
+
+    function hideInputs() {
+      const inputs = document.querySelectorAll("input:not([type='button'])");
+      inputs.forEach(input => {
+        input.style.visibility = "hidden";
+      });
+
+      function showInputs() {
+  const inputs = document.querySelectorAll("input");
+  inputs.forEach(input => {
+    input.style.visibility = "visible";
+  });
+}
+    }
+  </script>
+  </script>
+</body>
+</html>
+

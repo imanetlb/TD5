@@ -1,0 +1,43 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Changer la couleur d'arrière-plan et calculer le temps écoulé</title>
+</head>
+<body>
+  <h1>Choisissez une couleur :</h1>
+  <form>
+    <input type="radio" id="red" name="color" value="red">
+    <label for="red">Rouge</label><br>
+    <input type="radio" id="green" name="color" value="green">
+    <label for="green">Vert</label><br>
+    <input type="radio" id="blue" name="color" value="blue">
+    <label for="blue">Bleu</label><br>
+    <input type="radio" id="yellow" name="color" value="yellow">
+    <label for="yellow">Jaune clair</label><br>
+  </form>
+  
+  <button id="calculate-button">Calculer</button>
+  
+  <script>
+    let lastColorChange = Date.now();
+
+    function calculateTime() {
+      const now = Date.now();
+      const timeDiff = now - lastColorChange;
+      alert(`Le temps écoulé depuis le dernier changement de couleur est de ${timeDiff} millisecondes.`);
+    }
+
+    const calculateButton = document.getElementById("calculate-button");
+    calculateButton.addEventListener("click", calculateTime);
+
+    const radioButtons = document.getElementsByName("color");
+    radioButtons.forEach(radio => {
+      radio.addEventListener("click", () => {
+        document.body.style.backgroundColor = radio.value;
+        lastColorChange = Date.now();
+      });
+    });
+  </script>
+</body>
+</html>
